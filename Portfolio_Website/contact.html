@@ -1,0 +1,118 @@
+<!--Portfolio Website Designed and developed through use of html, css, and bootstrap 5 libraries
+    Created by: MarkDR
+-->
+<!DOCTYPE html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Info</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          type="text/css"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+          crossorigin="anonymous">
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/cover/">
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+
+    <link href="CSS/cover.css" rel="stylesheet">
+</head>
+<body class="d-flex h-100 text-white bg-dark">
+
+<!--navigation menu-->
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">Your Name </h3>
+            <nav class="nav nav-masthead justify-content-center float-md-end">
+                <a class="nav-link" aria-current="page" href="homepage.html">Home</a>
+                <a class="nav-link" aria-current="page" href="aboutme.html">About Me</a>
+                <a class="nav-link" aria-current="page" href="workexperience.html">Work Experience</a>
+                <a class="nav-link active"  aria-current="page" href="contact.html">Contact</a>
+            </nav>
+        </div>
+
+    </header>
+
+    <!--Main body-->
+    <div class="container py-5 w-100 h-100">
+
+        <h3 class="mt-lg-0">CONTACT </h3>
+        <p>Looking forward to hearing from you. </p>
+
+        <div class="row mb-5">
+
+            <!--Programmer info. -->
+            <div class="col-md-7">
+                <p><strong>Contact #:</strong> 000-000-0000 <br><strong>Email:</strong> your.email@email.com </p>
+            </div>
+
+            <!--Small form to collect essential employer info-->
+            <div class="col-md-5">
+               <form class="row g-1 needs-validation" onsubmit="sendEmail(); reset(); return false;">
+                    <div class="col-md-11">
+
+                        <input type="text" class="form-control " id="name" placeholder="Name" required>
+                        <div class="valid-feedback">
+                            Looks good!
+                        </div>
+                    </div>
+
+                   <div class="col-md-11 py-2">
+                       <input type="email" class="form-control " id="email" placeholder="Email" required>
+                       <div class="valid-feedback">
+                           Looks good!
+                       </div>
+                   </div>
+
+                   <div class="col-md-11 py-2">
+                       <input type="number" class="form-control " id="number" placeholder="Phone #(Optional): " required>
+                       <div class="valid-feedback">
+                           Looks good!
+                       </div>
+                   </div>
+
+                   <div class="col-md-11 py-2">
+                       <textarea class="form-control " placeholder="Enter some message here...(Optional)" ></textarea>
+                   </div>
+
+                    <div class="mb-3">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+               </form> <!--End of form -->
+            </div> <!--End of column form-->
+
+            <!-- Configure form to receive form info from potential employer: https://smtpjs.com/-->
+            <!--Check out smtpjs libraries for script configurations and guides or place something else of your own -->
+            <script>
+                function sendEmail(){
+                    Email.send({
+                        Host : "smtp.gmail.com",
+                        Username : "your email",
+                        Password : "your password",
+                        To : 'email to receive the inquiries',
+                        From : document.getElementById("email").value,
+                        Subject : "New Contact Form Inquiry",
+                        Body : "Name: " + document.getElementById("name").value +
+                                          document.getElementById("email").value +
+                                          document.getElementById("phone").value +
+                                          document.getElementById("message").value
+                    }).then(
+                        message => alert(message)
+                    );
+                }
+            </script>
+        </div>
+    </div>
+
+    <footer class="mt-auto text-center text-white-50">
+        <p>&copy 2022<a href="#" class="text-white">Some text here </a>
+            , website created by <a href="#" class="text-white">Some text here</a>.</p>
+    </footer>
+</div>
+
+</body>
+</html>
